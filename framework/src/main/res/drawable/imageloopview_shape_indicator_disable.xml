@@ -1,0 +1,7 @@
+<!-- 广告图标识当前广告位置的冒泡，半透明灰色 -->
+<shape
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval"
+    android:useLevel="false" >
+    <solid android:color="@color/text_disabled" />
+</shape>

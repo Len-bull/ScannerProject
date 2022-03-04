@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/LenWork/ScannerProject/app/src/main/res/drawable-v24/et_cursor_bg.xml" value="0.1555" />
+        <entry key="..\:/LenWork/ScannerProject/app/src/main/res/drawable/main_tab_text_color.xml" value="0.2085" />
+        <entry key="..\:/LenWork/ScannerProject/app/src/main/res/drawable/selector_home_icon.xml" value="0.2085" />
+        <entry key="..\:/LenWork/ScannerProject/app/src/main/res/drawable/selector_ios_dialog_item_bottom.xml" value="0.2025" />
+        <entry key="..\:/LenWork/ScannerProject/app/src/main/res/drawable/selector_ios_dialog_item_middle.xml" value="0.2025" />
+        <entry key="..\:/LenWork/ScannerProject/app/src/main/res/drawable/selector_ios_dialog_item_single.xml" value="0.2025" />
+        <entry key="..\:/LenWork/ScannerProject/app/src/main/res/drawable/selector_ios_dialog_item_top.xml" value="0.2025" />
+        <entry key="..\:/LenWork/ScannerProject/app/src/main/res/drawable/shape_ios_dialog_item_bottom_normal.xml" value="0.2025" />
+        <entry key="..\:/LenWork/ScannerProject/app/src/main/res/drawable/shape_ios_dialog_item_bottom_pressed.xml" value="0.2025" />
+        <entry key="..\:/LenWork/ScannerProject/app/src/main/res/drawable/shape_ios_dialog_item_single_normal.xml" value="0.2025" />
+        <entry key="..\:/LenWork/ScannerProject/app/src/main/res/drawable/shape_ios_dialog_item_single_pressed.xml" value="0.2025" />
+        <entry key="..\:/LenWork/ScannerProject/app/src/main/res/drawable/shape_ios_dialog_item_top_normal.xml" value="0.2025" />
+        <entry key="..\:/LenWork/ScannerProject/app/src/main/res/drawable/shape_ios_dialog_item_top_pressed.xml" value="0.2025" />
+        <entry key="..\:/LenWork/ScannerProject/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/LenWork/ScannerProject/app/src/main/res/layout/activity_text_editing.xml" value="0.21" />
+        <entry key="..\:/LenWork/ScannerProject/app/src/main/res/layout/dialog_ios_bottom.xml" value="0.19479166666666667" />
+        <entry key="..\:/LenWork/ScannerProject/app/src/main/res/layout/fragment_home.xml" value="0.38645833333333335" />
+        <entry key="..\:/LenWork/ScannerProject/app/src/main/res/menu/bottom_nav_menu.xml" value="0.38645833333333335" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.TextEditingActivity">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/et_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/dp_14"
+            android:layout_marginTop="@dimen/dp_15"
+            android:layout_marginRight="@dimen/dp_6"
+            android:background="@null"
+            android:gravity="top"
+            android:hint=""
+            android:padding="@dimen/dp_3"
+            android:textColor="#333333"
+            android:textCursorDrawable="@drawable/et_cursor_bg"
+            android:textSize="@dimen/sp_15" />
+
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>

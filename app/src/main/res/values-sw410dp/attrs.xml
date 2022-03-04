@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CircleImageView">
+        <attr name="iv_border_width" format="dimension"/>
+        <attr name="iv_border_color" format="color"/>
+    </declare-styleable>
+    <declare-styleable name="MyStarView">
+        <attr name="star_margin" format="integer"/><!--边距-->
+        <attr name="star_count" format="integer"/><!--star总个数-->
+        <attr name="star_click" format="boolean"/><!--star是否可点击-->
+    </declare-styleable>
+</resources>

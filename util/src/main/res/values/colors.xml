@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--文字正常颜色-->
+    <color name="text_normal">#000000</color>
+    <!--文字可点击颜色-->
+    <color name="text_clickable">#358ee0</color>
+    <!--文字不可修改颜色-->
+    <color name="text_disabled">#b8b8b8</color>
+</resources>

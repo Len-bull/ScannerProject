@@ -1,0 +1,46 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    ext.kotlin_version = "1.5.0"
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+        maven { url "https://www.jitpack.io" }
+        maven {url 'http://developer.huawei.com/repo/'}
+
+    }
+    dependencies {
+        // classpath 'com.huawei.agconnect:agcp:1.4.2.300'
+        classpath "com.android.tools.build:gradle:4.1.2"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.10"
+        classpath 'com.huawei.agconnect:agcp:1.5.2.300'
+    }
+}
+
+allprojects {
+    repositories {
+        flatDir {
+            dirs 'libs'
+            dirs project(':app').file('libs')
+        }
+        google()
+        jcenter()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+        maven { url "https://www.jitpack.io" }
+        // maven { url "https://maven.google.com"}
+        maven { url 'https://maven.aliyun.com/repository/public'}
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        maven { url "https://mirrors.tencent.com/nexus/repository/maven-public/" }
+        maven {url 'http://developer.huawei.com/repo/'}
+    }
+}
+
+apply from: "config.gradle"
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

@@ -1,0 +1,35 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 30
+
+    defaultConfig {
+        minSdkVersion 17
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    api fileTree(include: ['*.jar'], dir: 'libs')
+    api project(':util')
+    // okhttp
+    api 'com.squareup.okhttp3:okhttp:3.10.0'
+    // 注入框架
+    api 'androidx.recyclerview:recyclerview:1.0.0'
+    // 圆形进度条
+    api 'com.pnikosis:materialish-progress:1.7'
+    // tinker
+    //  provided 'com.tencent.tinker:tinker-android-anno:1.7.7'
+    // compile 'com.tinkerpatch.sdk:tinkerpatch-android-sdk:1.1.4'
+}

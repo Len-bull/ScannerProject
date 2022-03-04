@@ -1,0 +1,19 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.ext.android["compileSdkVersion"]
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android["minSdkVersion"]
+        targetSdkVersion rootProject.ext.android["targetSdkVersion"]
+        versionCode rootProject.ext.android["versionCode"]
+        versionName rootProject.ext.android["versionName"]
+    }
+
+}
+
+def utilDependencies = rootProject.ext.utilDependencies
+dependencies {
+    api fileTree(include: ['*.jar'], dir: 'libs')
+    utilDependencies.each { k, v -> api v }
+}

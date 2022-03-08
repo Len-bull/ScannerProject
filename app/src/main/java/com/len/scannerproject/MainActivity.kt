@@ -60,39 +60,11 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
             }
         }
 
-        idCardViewModel.idCardTextLiveData.observeState(this) {
-            onSuccess {
-                Log.d("test","${it.wordsResult.姓名.words}")
-                startActivity(Intent(this@MainActivity,IdCardActivity::class.java).putExtra("imagePath",imagePath).putExtra("ContentDTO",it.wordsResult))
-            }
-            onFailed { code, msg ->
-                toast("onFailed$msg")
-            }
-            onException {
-                toast(it.toString())
-            }
-            onEmpty {
-
-            }
-            onComplete {
-
-            }
-        }
-
     }
 
     /**识别文字*/
     private fun getAccurateBasic(base64 : String){
         viewModel.getText(base64)
-    }
-
-    /**识别身份证*/
-    private fun getIdCard(base64 : String, id_card_side : String){
-        var params= mutableMapOf<String,String>()
-        params["access_token"]= "24.22cdd7e6c13af94e50e0f9281b303b1b.2592000.1648266061.282335-24081649"
-        params["image"]= base64
-        params["id_card_side"]= id_card_side
-        idCardViewModel.getIdCardText(params)
     }
 
     /**申请权限*/
@@ -134,12 +106,12 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
     /** 弹出选择  */
     private fun showAlterHeadDialog() {
         IOSBottomDialog(this).setCancelable(true).setCanceledOnTouchOutside(true).setTitle("选择图片")
-            .addSheetItem("相机", null) {
+            .addSheetItem("扫描文字", null) {
                 var pathname = "avatar.png"
                 imageUri = PhotoUtils.takePhoto(this, pathname, TAKE_PHOTO)
 
-            }.addSheetItem("相册", null) {
-                PhotoUtils.startPickPhotoActivity(this, CHOOSE_PHOTO)
+            }.addSheetItem("识别身份证", null) {
+                startActivity(Intent(this@MainActivity,IdCardActivity::class.java))
             }.show()
     }
 
@@ -190,7 +162,6 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
             if (ysbitmap != null) {
                 val base64=Base64Utils.bitmapToBase64(ysbitmap)
                 this.imagePath=imagePath
-                getIdCard(base64,"back")
                 // ysbitmap.recycle()
             } else {
                 To.s("获取图片失败")

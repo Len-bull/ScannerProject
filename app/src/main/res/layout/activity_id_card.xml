@@ -1,27 +1,242 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.IdCardActivity">
-    <ImageView
-        android:id="@+id/image_id_card"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_200"
-        android:layout_marginLeft="@dimen/dp_20"
-        android:layout_marginRight="@dimen/dp_20"
-        android:layout_marginTop="@dimen/dp_20"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/image_id_card"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_170"
+            android:src="@mipmap/icon_id_card_bg"
+            android:layout_marginLeft="@dimen/dp_20"
+            android:layout_marginRight="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_15"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_marginLeft="@dimen/dp_20">
+        <ImageView
+            android:id="@+id/image_id_card_back"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_170"
+            android:src="@mipmap/icon_id_card_back_bg"
+            android:layout_marginLeft="@dimen/dp_20"
+            android:layout_marginRight="@dimen/dp_20"
+            app:layout_constraintStart_toStartOf="@id/image_id_card"
+            app:layout_constraintEnd_toEndOf="@id/image_id_card"
+            app:layout_constraintTop_toBottomOf="@id/image_id_card"
+            android:layout_marginTop="@dimen/dp_15"/>
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/tv_front"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="身份证正面信息："
+            android:textColor="@color/black_333333"
+            android:textSize="@dimen/sp_15"
+            app:layout_constraintStart_toStartOf="@id/image_id_card"
+            app:layout_constraintTop_toBottomOf="@id/image_id_card_back"
+            android:layout_marginTop="@dimen/dp_20"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/tv_name_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="姓名  "
+            android:textSize="@dimen/sp_14"
+            android:textColor="@color/black_333333"
+            app:layout_constraintStart_toStartOf="@id/tv_front"
+            app:layout_constraintTop_toBottomOf="@id/tv_front"
+            android:layout_marginTop="@dimen/dp_5"/>
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="@dimen/sp_14"
+            android:textColor="@color/blue_40"
+            app:layout_constraintStart_toEndOf="@id/tv_name_tip"
+            app:layout_constraintTop_toTopOf="@id/tv_name_tip"/>
+
+        <TextView
+            android:id="@+id/tv_sex_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="性别  "
+            android:textSize="@dimen/sp_14"
+            android:textColor="@color/black_333333"
+            app:layout_constraintStart_toStartOf="@id/tv_name_tip"
+            app:layout_constraintTop_toBottomOf="@id/tv_name_tip"
+            android:layout_marginTop="@dimen/dp_5"/>
+
+        <TextView
+            android:id="@+id/tv_sex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="@dimen/sp_14"
+            android:textColor="@color/black_333333"
+            app:layout_constraintStart_toEndOf="@id/tv_sex_tip"
+            app:layout_constraintTop_toTopOf="@id/tv_sex_tip"/>
+
+        <TextView
+            android:id="@+id/tv_nation_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="民族  "
+            android:textSize="@dimen/sp_14"
+            android:textColor="@color/black_333333"
+            app:layout_constraintStart_toEndOf="@id/tv_sex"
+            app:layout_constraintTop_toTopOf="@id/tv_sex"
+            android:layout_marginLeft="@dimen/dp_10"/>
+
+        <TextView
+            android:id="@+id/tv_nation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="@dimen/sp_14"
+            android:textColor="@color/black_333333"
+            app:layout_constraintStart_toEndOf="@id/tv_nation_tip"
+            app:layout_constraintTop_toTopOf="@id/tv_nation_tip"/>
+
+        <TextView
+            android:id="@+id/tv_birthday_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="出生  "
+            android:textSize="@dimen/sp_14"
+            android:textColor="@color/black_333333"
+            app:layout_constraintStart_toStartOf="@id/tv_sex_tip"
+            app:layout_constraintTop_toBottomOf="@id/tv_sex_tip"
+            android:layout_marginTop="@dimen/dp_5"/>
+
+        <TextView
+            android:id="@+id/tv_birthday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="@dimen/sp_14"
+            android:textColor="@color/black_333333"
+            app:layout_constraintStart_toEndOf="@id/tv_birthday_tip"
+            app:layout_constraintTop_toTopOf="@id/tv_birthday_tip"/>
+
+        <TextView
+            android:id="@+id/tv_address_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="住址  "
+            android:textSize="@dimen/sp_14"
+            android:textColor="@color/black_333333"
+            app:layout_constraintStart_toStartOf="@id/tv_birthday_tip"
+            app:layout_constraintTop_toBottomOf="@id/tv_birthday_tip"
+            android:layout_marginTop="@dimen/dp_5"/>
+
+        <TextView
+            android:id="@+id/tv_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="@dimen/sp_14"
+            android:textColor="@color/black_333333"
+            app:layout_constraintStart_toEndOf="@id/tv_address_tip"
+            app:layout_constraintTop_toTopOf="@id/tv_address_tip"/>
+
+        <TextView
+            android:id="@+id/tv_id_number_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="公民身份证号码  "
+            android:textSize="@dimen/sp_14"
+            android:textColor="@color/black_333333"
+            app:layout_constraintStart_toStartOf="@id/tv_address_tip"
+            app:layout_constraintTop_toBottomOf="@id/tv_address_tip"
+            android:layout_marginTop="@dimen/dp_5"/>
+
+        <TextView
+            android:id="@+id/tv_id_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="@dimen/sp_14"
+            android:textColor="@color/blue_40"
+            app:layout_constraintStart_toEndOf="@id/tv_id_number_tip"
+            app:layout_constraintTop_toTopOf="@id/tv_id_number_tip"/>
+
+
+        <TextView
+            android:id="@+id/tv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="身份证背面信息："
+            android:textColor="@color/black_333333"
+            android:textSize="@dimen/sp_15"
+            app:layout_constraintStart_toStartOf="@id/tv_id_number_tip"
+            app:layout_constraintTop_toBottomOf="@id/tv_id_number_tip"
+            android:layout_marginTop="@dimen/dp_20"/>
+
+        <TextView
+            android:id="@+id/tv_organization_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="签发机关  "
+            android:textSize="@dimen/sp_14"
+            android:textColor="@color/black_333333"
+            app:layout_constraintStart_toStartOf="@id/tv_back"
+            app:layout_constraintTop_toBottomOf="@id/tv_back"
+            android:layout_marginTop="@dimen/dp_5"/>
+
+        <TextView
+            android:id="@+id/tv_organization"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="@dimen/sp_14"
+            android:textColor="@color/black_333333"
+            app:layout_constraintStart_toEndOf="@id/tv_organization_tip"
+            app:layout_constraintTop_toTopOf="@id/tv_organization_tip"/>
+
+        <TextView
+            android:id="@+id/tv_date_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="有效期限  "
+            android:textSize="@dimen/sp_14"
+            android:textColor="@color/black_333333"
+            app:layout_constraintStart_toStartOf="@id/tv_organization_tip"
+            app:layout_constraintTop_toBottomOf="@id/tv_organization_tip"
+            android:layout_marginTop="@dimen/dp_5"/>
+
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="@dimen/sp_14"
+            android:textColor="@color/black_333333"
+            app:layout_constraintStart_toEndOf="@id/tv_date_tip"
+            app:layout_constraintTop_toTopOf="@id/tv_date_tip"/>
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bt_start"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_48"
+            android:text="开始识别"
+            android:textSize="@dimen/sp_16"
+            app:layout_constraintTop_toBottomOf="@id/tv_date"
+            android:layout_marginTop="@dimen/dp_30"
+            android:layout_marginLeft="@dimen/dp_40"
+            android:layout_marginRight="@dimen/dp_40"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</androidx.core.widget.NestedScrollView>

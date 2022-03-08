@@ -2,7 +2,13 @@ package com.len.scannerproject.bean;
 
 import com.google.gson.annotations.SerializedName;
 
-public class IdCardBean {
+import java.io.Serializable;
+
+public class IdCardBean implements Serializable {
+    @SerializedName("error_msg")
+    private String errorMsg;
+    @SerializedName("error_code")
+    private Integer errorCode;
     @SerializedName("words_result")
     private WordsResultDTO wordsResult;
     @SerializedName("words_result_num")
@@ -13,6 +19,22 @@ public class IdCardBean {
     private String imageStatus;
     @SerializedName("log_id")
     private Long logId;
+
+    public String getErrorMsg() {
+        return errorMsg;
+    }
+
+    public void setErrorMsg(String errorMsg) {
+        this.errorMsg = errorMsg;
+    }
+
+    public Integer getErrorCode() {
+        return errorCode;
+    }
+
+    public void setErrorCode(Integer errorCode) {
+        this.errorCode = errorCode;
+    }
 
     public WordsResultDTO getWordsResult() {
         return wordsResult;
@@ -54,7 +76,7 @@ public class IdCardBean {
         this.logId = logId;
     }
 
-    public static class WordsResultDTO {
+    public static class WordsResultDTO implements Serializable{
         @SerializedName("姓名")
         private 姓名DTO 姓名;
         @SerializedName("民族")
@@ -116,7 +138,7 @@ public class IdCardBean {
             this.性别 = 性别;
         }
 
-        public static class 姓名DTO {
+        public static class 姓名DTO implements Serializable{
             @SerializedName("location")
             private LocationDTO location;
             @SerializedName("words")
@@ -138,7 +160,7 @@ public class IdCardBean {
                 this.words = words;
             }
 
-            public static class LocationDTO {
+            public static class LocationDTO implements Serializable{
                 @SerializedName("top")
                 private Integer top;
                 @SerializedName("left")
@@ -182,7 +204,7 @@ public class IdCardBean {
             }
         }
 
-        public static class 民族DTO {
+        public static class 民族DTO implements Serializable{
             @SerializedName("location")
             private LocationDTO location;
             @SerializedName("words")
@@ -204,7 +226,7 @@ public class IdCardBean {
                 this.words = words;
             }
 
-            public static class LocationDTO {
+            public static class LocationDTO implements Serializable{
                 @SerializedName("top")
                 private Integer top;
                 @SerializedName("left")
@@ -248,7 +270,7 @@ public class IdCardBean {
             }
         }
 
-        public static class 住址DTO {
+        public static class 住址DTO implements Serializable{
             @SerializedName("location")
             private LocationDTO location;
             @SerializedName("words")
@@ -270,7 +292,7 @@ public class IdCardBean {
                 this.words = words;
             }
 
-            public static class LocationDTO {
+            public static class LocationDTO implements Serializable{
                 @SerializedName("top")
                 private Integer top;
                 @SerializedName("left")
@@ -314,7 +336,7 @@ public class IdCardBean {
             }
         }
 
-        public static class 公民身份号码DTO {
+        public static class 公民身份号码DTO implements Serializable{
             @SerializedName("location")
             private LocationDTO location;
             @SerializedName("words")
@@ -336,7 +358,7 @@ public class IdCardBean {
                 this.words = words;
             }
 
-            public static class LocationDTO {
+            public static class LocationDTO implements Serializable{
                 @SerializedName("top")
                 private Integer top;
                 @SerializedName("left")
@@ -380,7 +402,7 @@ public class IdCardBean {
             }
         }
 
-        public static class 出生DTO {
+        public static class 出生DTO implements Serializable{
             @SerializedName("location")
             private LocationDTO location;
             @SerializedName("words")
@@ -402,7 +424,7 @@ public class IdCardBean {
                 this.words = words;
             }
 
-            public static class LocationDTO {
+            public static class LocationDTO implements Serializable{
                 @SerializedName("top")
                 private Integer top;
                 @SerializedName("left")
@@ -446,7 +468,7 @@ public class IdCardBean {
             }
         }
 
-        public static class 性别DTO {
+        public static class 性别DTO implements Serializable{
             @SerializedName("location")
             private LocationDTO location;
             @SerializedName("words")
@@ -468,7 +490,7 @@ public class IdCardBean {
                 this.words = words;
             }
 
-            public static class LocationDTO {
+            public static class LocationDTO implements Serializable{
                 @SerializedName("top")
                 private Integer top;
                 @SerializedName("left")

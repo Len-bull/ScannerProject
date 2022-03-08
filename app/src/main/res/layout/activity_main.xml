@@ -1,21 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".MainActivity"
-    android:clipChildren="false">
+    android:background="@color/white">
 
-    <FrameLayout
-        android:id="@+id/fl_main"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="#efefef"
-        android:orientation="vertical"/>
-    <View style="@style/Line_dc_one"/>
+
+    <View style="@style/Line_dc_one"
+        android:layout_above="@id/ll_main_tabs"/>
+    <LinearLayout
+        android:id="@+id/ll_camera"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:elevation="1dp">
+        <ImageView
+            android:id="@+id/iv_camera"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:src="@mipmap/icon_camera_bg" />
+        <TextView
+            android:textColor="@color/black"
+            android:text="扫描"
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
     <LinearLayout
         android:id="@+id/ll_main_tabs"
         android:layout_width="match_parent"
@@ -64,23 +79,12 @@
                 android:textSize="@dimen/sp_13" />
 
             <LinearLayout
-                android:id="@+id/ll_camera"
                 android:gravity="center_horizontal"
                 android:orientation="vertical"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="110dp">
-                <ImageView
-                    android:id="@+id/iv_camera"
-                    android:layout_width="55dp"
-                    android:layout_height="55dp"
-                    android:src="@mipmap/icon_camera_bg" />
-                <TextView
-                    android:textColor="@color/black"
-                    android:text="扫描"
-                    android:padding="5dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+
             </LinearLayout>
 
 
@@ -117,4 +121,4 @@
 
 
 
-</LinearLayout>
+</RelativeLayout>

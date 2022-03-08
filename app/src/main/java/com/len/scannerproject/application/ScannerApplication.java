@@ -1,10 +1,10 @@
 package com.len.scannerproject.application;
 
-import android.app.Application;
 
+import com.aisier.architecture.base.BaseApp;
 import com.tdqc.util.UtilsInit;
 
-public class ScannerApplication extends Application {
+public class ScannerApplication extends BaseApp {
     @Override
     public void onCreate() {
         super.onCreate();

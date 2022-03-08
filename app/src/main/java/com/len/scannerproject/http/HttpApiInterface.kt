@@ -10,6 +10,7 @@ interface HttpApiInterface {
     @FormUrlEncoded
     @POST("accurate_basic")
     suspend fun requestAccurateBasic(@Field("image") image:String): ApiResponse<AccurateBasicBean>
+
     /**身份证识别 Map方式传参*/
     @FormUrlEncoded
     @POST("idcard")

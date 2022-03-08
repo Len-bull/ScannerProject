@@ -5,14 +5,18 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Build
+import android.util.Log
 import androidx.activity.viewModels
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.aisier.architecture.base.BaseActivity
+import com.aisier.network.toast
 import com.len.scannerproject.databinding.ActivityMainBinding
 import com.len.scannerproject.view.IOSBottomDialog
 import com.len.scannerproject.config.IntentConfig
-import com.len.scannerproject.base.BaseActivity
+import com.len.scannerproject.ui.IdCardActivity
 import com.len.scannerproject.ui.TextEditingActivity
-import com.len.scannerproject.viewmode.CharacterRecognitionViewMode
+import com.len.scannerproject.viewmodel.CharacterRecognitionViewModel
+import com.len.scannerproject.viewmodel.IdCardViewModel
 import com.tdqc.util.Base64Utils
 import com.tdqc.util.PhotoUtils
 import com.tdqc.util.To
@@ -25,31 +29,71 @@ import java.util.HashMap
 
 class MainActivity : BaseActivity(R.layout.activity_main) {
     private val binding by viewBinding(ActivityMainBinding::bind)
-    private val viewModel by viewModels<CharacterRecognitionViewMode>()
+    private val viewModel by viewModels<CharacterRecognitionViewModel>()
+    private val idCardViewModel by viewModels<IdCardViewModel>()
+
+    var imagePath=""
 
     override fun init() {
         binding.llCamera.setOnClickListener {
             initPermission()
         }
-        initObserve()
+        initObserver()
     }
 
-    private fun initObserve() {
-        //startActivity(Intent(this@MainActivity,TextEditingActivity::class.java).putExtra("ContentDTO",it.body.data))
+    private fun initObserver() {
+        viewModel.textLiveData.observeState(this) {
+            onSuccess {
+                startActivity(Intent(this@MainActivity,TextEditingActivity::class.java).putExtra("ContentDTO",it))
+            }
+            onFailed { i, s ->
+                toast("onFailed$s")
+            }
+            onException {
+                toast(it.toString())
+            }
+            onEmpty {
+                toast("onEmpty")
+            }
+            onComplete {
+
+            }
+        }
+
+        idCardViewModel.idCardTextLiveData.observeState(this) {
+            onSuccess {
+                Log.d("test","${it.wordsResult.姓名.words}")
+                startActivity(Intent(this@MainActivity,IdCardActivity::class.java).putExtra("imagePath",imagePath).putExtra("ContentDTO",it.wordsResult))
+            }
+            onFailed { code, msg ->
+                toast("onFailed$msg")
+            }
+            onException {
+                toast(it.toString())
+            }
+            onEmpty {
+
+            }
+            onComplete {
+
+            }
+        }
 
     }
 
     /**识别文字*/
     private fun getAccurateBasic(base64 : String){
-
-
+        viewModel.getText(base64)
     }
 
     /**识别身份证*/
     private fun getIdCard(base64 : String, id_card_side : String){
-
+        var params= mutableMapOf<String,String>()
+        params["access_token"]= "24.22cdd7e6c13af94e50e0f9281b303b1b.2592000.1648266061.282335-24081649"
+        params["image"]= base64
+        params["id_card_side"]= id_card_side
+        idCardViewModel.getIdCardText(params)
     }
-
 
     /**申请权限*/
     private fun initPermission() {
@@ -120,13 +164,14 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
             }
             CHOOSE_PHOTO -> if (resultCode == RESULT_OK) {
                 //判断手机系统版本号
+                    var imagePath=""
                 if (Build.VERSION.SDK_INT >= 19) {
                     //4.4及以上系统使用这个方法处理图片
-                    val imagePath = PhotoUtils.handleImageOnKitKat(data)
+                    imagePath = PhotoUtils.handleImageOnKitKat(data)
                     diaplayImage(imagePath)
                 } else {
                     //4.4以下系统使用这个放出处理图片
-                    val imagePath = PhotoUtils.handleImageBeforeKitKat(data)
+                    imagePath = PhotoUtils.handleImageBeforeKitKat(data)
                     diaplayImage(imagePath)
                 }
             }
@@ -136,15 +181,16 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
     }
 
     /** 依据图片地址压缩生成图片并转码  */
-    private fun diaplayImage(imagePath: String?) {
-        if (imagePath != null) {
+    private fun diaplayImage(imagePath: String) {
+        if (imagePath.isNotEmpty()) {
             val file = File(imagePath)
             //            picmap.put("avatar.png", file)
             //            SubmitPic()
             val ysbitmap: Bitmap? = PhotoUtils.zipPhoto(imagePath)
             if (ysbitmap != null) {
                 val base64=Base64Utils.bitmapToBase64(ysbitmap)
-                getIdCard(base64,"front")
+                this.imagePath=imagePath
+                getIdCard(base64,"back")
                 // ysbitmap.recycle()
             } else {
                 To.s("获取图片失败")

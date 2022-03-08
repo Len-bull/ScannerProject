@@ -2,6 +2,7 @@ package com.aisier.architecture.base
 
 import android.app.ProgressDialog
 import android.os.Bundle
+import android.view.WindowManager
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import com.aisier.architecture.util.toast
@@ -21,6 +22,8 @@ abstract class BaseActivity(@LayoutRes contentLayoutId: Int) : AppCompatActivity
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        supportActionBar?.hide()//隐藏标题栏
+        window.setFlags(WindowManager.LayoutParams.ALPHA_CHANGED, WindowManager.LayoutParams.ALPHA_CHANGED)
         init()
         observeUi()
     }

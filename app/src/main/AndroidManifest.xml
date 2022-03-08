@@ -18,6 +18,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ScannerProject">
         <activity
+            android:name=".ui.IdCardActivity"
+            android:exported="true" />
+        <activity
             android:name=".ui.TextEditingActivity"
             android:exported="true" />
 

@@ -48,5 +48,6 @@ ext {
             "legacySupportV4": "androidx.legacy:legacy-support-v4:1.0.0",
             "okhttp3": "com.squareup.okhttp3:okhttp:4.9.0",
             "gson": "com.google.code.gson:gson:2.8.6",
+            "glide": "com.github.bumptech.glide:glide:4.9.0"
     ]
 }

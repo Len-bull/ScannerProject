@@ -35,8 +35,8 @@ open class BaseRepository {
         return if (data.isSuccess) {
             getHttpSuccessResponse(data)
         } else {
-            handlingApiExceptions(data.errorCode, data.errorMsg)
-            ApiFailedResponse(data.errorCode, data.errorMsg)
+            handlingApiExceptions(data.code, data.status)
+            ApiFailedResponse(data.code, data.status)
         }
     }
 
